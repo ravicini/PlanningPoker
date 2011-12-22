@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C40B9AD-A1CC-4D57-B850-01AB465064C0}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PlanningPoker</RootNamespace>
+    <AssemblyName>PlanningPoker</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>PlanningPoker.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>PlanningPoker.Application.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\PlanningPoker\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\packages\Caliburn.Micro.1.2.0\lib\SL40-wp\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Extensions">
+      <HintPath>..\packages\Caliburn.Micro.1.2.0\lib\SL40-wp\Caliburn.Micro.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=3.7.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.1.2.0\lib\SL40-wp\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Bootstrapper.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\Card.cs" />
+    <Compile Include="Helpers\CardExtensions.cs" />
+    <Compile Include="Helpers\ImageAttribute.cs" />
+    <Compile Include="Helpers\ImagePathConstants.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CardViewModel.cs" />
+    <Compile Include="ViewModels\SelectCardViewModel.cs" />
+    <Compile Include="Views\CardTile.xaml.cs">
+      <DependentUpon>CardTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardView.xaml.cs">
+      <DependentUpon>CardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectCardView.xaml.cs">
+      <DependentUpon>SelectCardView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="Application\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Views\CardTile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SelectCardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Cards\Tiles\0.png" />
+    <Resource Include="Cards\Tiles\1.png" />
+    <Resource Include="Cards\Tiles\13.png" />
+    <Resource Include="Cards\Tiles\1_2.png" />
+    <Resource Include="Cards\Tiles\2.png" />
+    <Resource Include="Cards\Tiles\20.png" />
+    <Resource Include="Cards\Tiles\3.png" />
+    <Resource Include="Cards\Tiles\40.png" />
+    <Resource Include="Cards\Tiles\5.png" />
+    <Resource Include="Cards\Tiles\8.png" />
+    <Resource Include="Cards\Tiles\break.png" />
+    <Resource Include="Cards\Tiles\infinite.png" />
+    <Resource Include="Cards\Tiles\questionmark.png" />
+    <Resource Include="Cards\b0.png" />
+    <Resource Include="Cards\b1.png" />
+    <Resource Include="Cards\b13.png" />
+    <Resource Include="Cards\b1_2.png" />
+    <Resource Include="Cards\b2.png" />
+    <Resource Include="Cards\b20.png" />
+    <Resource Include="Cards\b3.png" />
+    <Resource Include="Cards\b40.png" />
+    <Resource Include="Cards\b5.png" />
+    <Resource Include="Cards\b8.png" />
+    <Resource Include="Cards\backside.png" />
+    <Resource Include="Cards\bbreak.png" />
+    <Resource Include="Cards\binfinite.png" />
+    <Resource Include="Cards\bquestionmark.png" />
+    <Resource Include="Cards\g0.png" />
+    <Resource Include="Cards\g1.png" />
+    <Resource Include="Cards\g13.png" />
+    <Resource Include="Cards\g1_2.png" />
+    <Resource Include="Cards\g2.png" />
+    <Resource Include="Cards\g20.png" />
+    <Resource Include="Cards\g3.png" />
+    <Resource Include="Cards\g40.png" />
+    <Resource Include="Cards\g5.png" />
+    <Resource Include="Cards\g8.png" />
+    <Resource Include="Cards\gbreak.png" />
+    <Resource Include="Cards\ginfinite.png" />
+    <Resource Include="Cards\gquestionmark.png" />
+    <Resource Include="Cards\o0.png" />
+    <Resource Include="Cards\o1.png" />
+    <Resource Include="Cards\o13.png" />
+    <Resource Include="Cards\o1_2.png" />
+    <Resource Include="Cards\o2.png" />
+    <Resource Include="Cards\o20.png" />
+    <Resource Include="Cards\o3.png" />
+    <Resource Include="Cards\o40.png" />
+    <Resource Include="Cards\o5.png" />
+    <Resource Include="Cards\o8.png" />
+    <Resource Include="Cards\obreak.png" />
+    <Resource Include="Cards\oinfinite.png" />
+    <Resource Include="Cards\oquestionmark.png" />
+    <Resource Include="Cards\y0.png" />
+    <Resource Include="Cards\y1.png" />
+    <Resource Include="Cards\y13.png" />
+    <Resource Include="Cards\y1_2.png" />
+    <Resource Include="Cards\y2.png" />
+    <Resource Include="Cards\y20.png" />
+    <Resource Include="Cards\y3.png" />
+    <Resource Include="Cards\y40.png" />
+    <Resource Include="Cards\y5.png" />
+    <Resource Include="Cards\y8.png" />
+    <Resource Include="Cards\ybreak.png" />
+    <Resource Include="Cards\yinfinite.png" />
+    <Resource Include="Cards\yquestionmark.png" />
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+</Project>
