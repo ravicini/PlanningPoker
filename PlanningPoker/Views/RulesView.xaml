@@ -27,7 +27,87 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Margin="9,0,0,0"
+                       Foreground="{StaticResource PhoneAccentBrush}"
+                       Grid.ColumnSpan="2"
+                       Text="Effectice Story Estimation:"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10,0,0,0" Text="1." />
+                <TextBlock Grid.Column="1"
+                       Text="The Product Owner tells the story." />
+
+                <TextBlock Grid.Row="1" Margin="10,0,0,0" Text="2." />
+                <TextBlock Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"
+                     Text="Each team member selects the card corresponding to his/her estimate of the story's size in story points. The size of the story is estimated in relation to reference story." />
+
+                <TextBlock Grid.Row="2" Margin="10,0,0,0" Text="3." />
+                <TextBlock Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"
+                     Text="All team members simultaneously show their cards." />
+
+                <TextBlock Grid.Row="3" Margin="10,0,0,0" Text="4." />
+                <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"
+                     Text="If estimates diverge, the two team members whose estimates diverge the most explain their respective points of view. Then, the estimation procedure is repeated until consensus is reached." />
+            </Grid>
+            <TextBlock Margin="9,0,0,0"
+                       Foreground="{StaticResource PhoneAccentBrush}"
+                       Grid.Row="2" Grid.ColumnSpan="2"
+                       Text="Special Cards:"/>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Image Width="40" Height="40"
+                       Source="/PlanningPoker;component/images/rules/zero.png"/>
+                <TextBlock Grid.Column="1" TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           Text="The story is already implemented." />
+
+                <Image Grid.Row="1"
+                       Width="40" Height="40"
+                       Source="/PlanningPoker;component/images/rules/pause.png" />
+                <TextBlock Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           Text="I need a break." />
+
+                <Image Grid.Row="2"
+                       Width="40" Height="40"
+                       VerticalAlignment="Top"
+                       Source="/PlanningPoker;component/images/rules/question.png" />
+                <TextBlock Grid.Row="2" Grid.Column="1" TextWrapping="Wrap"
+                           Text="I have absolutely no idea, I need more information." />
+
+                <Image Grid.Row="3"
+                       Width="40" Height="40"
+                       Source="/PlanningPoker;component/images/rules/infinite.png" />
+                <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           Text="The story is too large or can't be estimated." />
+            </Grid>
+        </Grid>
     </Grid>
  
     <!--Sample code showing usage of ApplicationBar-->

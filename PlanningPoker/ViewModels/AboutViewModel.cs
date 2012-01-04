@@ -8,6 +8,5 @@ namespace PlanningPoker.ViewModels
 {
     public class AboutViewModel
     {
-         
     }
 }
