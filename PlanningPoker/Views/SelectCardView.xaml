@@ -71,21 +71,50 @@
             <controls:PanoramaItem>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="173"/>
+                        <ColumnDefinition Width="173" />
                         <ColumnDefinition Width="12" />
-                        <ColumnDefinition Width="173"/>
+                        <ColumnDefinition Width="173" />
+                        <ColumnDefinition Width="62*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="173"/>
+                        <RowDefinition Height="173" />
                         <RowDefinition Height="12" />
                         <RowDefinition Height="173"/>
                         <RowDefinition Height="12" />
                         <RowDefinition Height="173"/>
+                        <RowDefinition Height="51*" />
                     </Grid.RowDefinitions>
-                    <Views:CardTile Grid.ColumnSpan="3" Card="Break" Command="{Binding TileSelected}" />
-                    <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="config" FontSize="60" />
-                    <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="rules" FontSize="60" />
-                    <TextBlock Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="about" FontSize="60" />
+                    <Grid Grid.ColumnSpan="3" Background="{StaticResource PhoneAccentBrush}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Canvas Width="64" Height="64" Clip="F1 M 0,0L 64,0L 64,64L 0,64L 0,0" UseLayoutRounding="False">
+                            <Path Width="64" Height="64" Canvas.Left="0" Canvas.Top="0" Stretch="Fill" Fill="White" Data="F1 M 26.6942,26.9646L 26.6942,25.093L 33.9107,14.813L 33.9107,14.7246L 27.3461,14.7246L 27.3461,11.8488L 38.3395,11.8488L 38.3395,13.8573L 31.2803,24L 31.2803,24.0888L 38.4525,24.0888L 38.4525,26.9646L 26.6942,26.9646 Z M 17.4492,31.9771L 17.4492,30.7661L 22.1187,24.1143L 22.1187,24.0571L 17.871,24.0571L 17.871,22.1963L 24.9844,22.1963L 24.9844,23.4959L 20.4167,30.0588L 20.4167,30.1163L 25.0575,30.1163L 25.0575,31.9771L 17.4492,31.9771 Z M 9.82666,35.9833L 9.82666,35.1026L 13.2227,30.2649L 13.2227,30.2233L 10.1335,30.2233L 10.1335,28.87L 15.3068,28.87L 15.3068,29.8152L 11.9849,34.5882L 11.9849,34.63L 15.36,34.63L 15.36,35.9833L 9.82666,35.9833 Z "/>
+                        </Canvas>
+                        <TextBlock Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Text="break" FontSize="60" Margin="-80,0,0,0"/>
+                        <Button x:Name="NavigateToBreak" Opacity="0" Grid.ColumnSpan="3" />
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.ColumnSpan="3" Background="{StaticResource PhoneAccentBrush}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Canvas Width="64" Height="64" Clip="F1 M 0,0L 64,0L 64,64L 0,64L 0,0" UseLayoutRounding="False">
+                            <Ellipse Width="12" Height="12" Canvas.Left="26" Canvas.Top="26" Stretch="Fill" Fill="White"/>
+                            <Path Width="64" Height="64" Canvas.Left="0" Canvas.Top="0" Stretch="Fill" Fill="White" Data="F1 M 24.69,17.5542L 27.9094,14.793C 28.5138,15.05 29.0876,15.3647 29.6241,15.7302L 29.0458,19.93L 33.2747,20.2541C 33.5166,20.8524 33.7023,21.4794 33.8252,22.1286L 30.4458,24.69L 33.207,27.9094C 32.95,28.5137 32.6353,29.0876 32.2698,29.6241L 28.07,29.0458L 27.7459,33.2747C 27.1476,33.5166 26.5206,33.7023 25.8714,33.8252L 23.3099,30.4458L 20.0906,33.207C 19.4862,32.95 18.9124,32.6353 18.3759,32.2698L 18.9542,28.0699L 14.7253,27.7459C 14.4834,27.1476 14.2977,26.5206 14.1748,25.8713L 17.5542,23.3099L 14.793,20.0906C 15.05,19.4862 15.3647,18.9124 15.7302,18.3759L 19.93,18.9542L 20.2541,14.7252C 20.8524,14.4834 21.4794,14.2977 22.1286,14.1748L 24.69,17.5542 Z M 24,20C 21.7909,20 20,21.7909 20,24C 20,26.2091 21.7909,28 24,28C 26.2091,28 28,26.2091 28,24C 28,21.7909 26.2091,20 24,20 Z "/>
+                        </Canvas>
+                        <TextBlock Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Text="config" FontSize="60" Margin="-80,0,0,0"/>
+                        <Button x:Name="NavigateToConfig" Opacity="0" Grid.ColumnSpan="3" />
+                    </Grid>
+                    <Grid Grid.Row="4" Background="{StaticResource PhoneAccentBrush}">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="rules" FontSize="60" />
+                        <Button x:Name="NavigateToRules" Opacity="0" />
+                    </Grid>
+                    <Grid Grid.Row="4" Grid.Column="2" Background="{StaticResource PhoneAccentBrush}">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="about" FontSize="60" />
+                        <Button x:Name="NavigateToAbout" Opacity="0" />
+                    </Grid>
                 </Grid>
             </controls:PanoramaItem>
         </controls:Panorama>

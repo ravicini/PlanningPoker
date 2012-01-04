@@ -27,7 +27,7 @@ namespace PlanningPoker.ViewModels
         {
             this.navigationService = navigationService;
         }
-
+        
         /// <summary>
         /// Gets the action which will be performed when a tile gets selected.
         /// </summary>
@@ -39,11 +39,53 @@ namespace PlanningPoker.ViewModels
             }
         }
 
+        /// <summary>
+        /// Navigates to the provided card.
+        /// </summary>
+        /// <param name="card">The card.</param>
         private void Navigate(Card card)
         {
             this.navigationService
                 .UriFor<CardViewModel>()
                 .WithParam(viewModel => viewModel.Card, card)
+                .Navigate();
+        }
+
+        /// <summary>
+        /// Navigates to the break view.
+        /// </summary>
+        public void NavigateToBreak()
+        {
+            this.Navigate(Card.Break);
+        }
+
+        /// <summary>
+        /// Navigates to config view.
+        /// </summary>
+        public void NavigateToConfig()
+        {
+            this.navigationService
+                .UriFor<ConfigViewModel>()
+                .Navigate();
+        }
+
+        /// <summary>
+        /// Navigates to rules view.
+        /// </summary>
+        public void NavigateToRules()
+        {
+            this.navigationService
+                .UriFor<RulesViewModel>()
+                .Navigate();
+        }
+
+        /// <summary>
+        /// Navigates to about view.
+        /// </summary>
+        public void NavigateToAbout()
+        {
+            this.navigationService
+                .UriFor<AboutViewModel>()
                 .Navigate();
         }
     }

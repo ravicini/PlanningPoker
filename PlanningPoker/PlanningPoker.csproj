@@ -77,15 +77,28 @@
     <Compile Include="Helpers\Card.cs" />
     <Compile Include="Helpers\CardExtensions.cs" />
     <Compile Include="Helpers\ImageAttribute.cs" />
-    <Compile Include="Helpers\ImagePathConstants.cs" />
+    <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\TileInfoAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\CardViewModel.cs" />
+    <Compile Include="ViewModels\ConfigViewModel.cs" />
+    <Compile Include="ViewModels\RulesViewModel.cs" />
     <Compile Include="ViewModels\SelectCardViewModel.cs" />
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CardTile.xaml.cs">
       <DependentUpon>CardTile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CardView.xaml.cs">
       <DependentUpon>CardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfigView.xaml.cs">
+      <DependentUpon>ConfigView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RulesView.xaml.cs">
+      <DependentUpon>RulesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SelectCardView.xaml.cs">
       <DependentUpon>SelectCardView.xaml</DependentUpon>
@@ -96,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CardTile.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +120,14 @@
     <Page Include="Views\CardView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ConfigView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RulesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SelectCardView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -121,72 +146,60 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Cards\Tiles\0.png" />
-    <Resource Include="Cards\Tiles\1.png" />
-    <Resource Include="Cards\Tiles\13.png" />
-    <Resource Include="Cards\Tiles\1_2.png" />
-    <Resource Include="Cards\Tiles\2.png" />
-    <Resource Include="Cards\Tiles\20.png" />
-    <Resource Include="Cards\Tiles\3.png" />
-    <Resource Include="Cards\Tiles\40.png" />
-    <Resource Include="Cards\Tiles\5.png" />
-    <Resource Include="Cards\Tiles\8.png" />
-    <Resource Include="Cards\Tiles\break.png" />
-    <Resource Include="Cards\Tiles\infinite.png" />
-    <Resource Include="Cards\Tiles\questionmark.png" />
-    <Resource Include="Cards\b0.png" />
-    <Resource Include="Cards\b1.png" />
-    <Resource Include="Cards\b13.png" />
-    <Resource Include="Cards\b1_2.png" />
-    <Resource Include="Cards\b2.png" />
-    <Resource Include="Cards\b20.png" />
-    <Resource Include="Cards\b3.png" />
-    <Resource Include="Cards\b40.png" />
-    <Resource Include="Cards\b5.png" />
-    <Resource Include="Cards\b8.png" />
-    <Resource Include="Cards\backside.png" />
-    <Resource Include="Cards\bbreak.png" />
-    <Resource Include="Cards\binfinite.png" />
-    <Resource Include="Cards\bquestionmark.png" />
-    <Resource Include="Cards\g0.png" />
-    <Resource Include="Cards\g1.png" />
-    <Resource Include="Cards\g13.png" />
-    <Resource Include="Cards\g1_2.png" />
-    <Resource Include="Cards\g2.png" />
-    <Resource Include="Cards\g20.png" />
-    <Resource Include="Cards\g3.png" />
-    <Resource Include="Cards\g40.png" />
-    <Resource Include="Cards\g5.png" />
-    <Resource Include="Cards\g8.png" />
-    <Resource Include="Cards\gbreak.png" />
-    <Resource Include="Cards\ginfinite.png" />
-    <Resource Include="Cards\gquestionmark.png" />
-    <Resource Include="Cards\o0.png" />
-    <Resource Include="Cards\o1.png" />
-    <Resource Include="Cards\o13.png" />
-    <Resource Include="Cards\o1_2.png" />
-    <Resource Include="Cards\o2.png" />
-    <Resource Include="Cards\o20.png" />
-    <Resource Include="Cards\o3.png" />
-    <Resource Include="Cards\o40.png" />
-    <Resource Include="Cards\o5.png" />
-    <Resource Include="Cards\o8.png" />
-    <Resource Include="Cards\obreak.png" />
-    <Resource Include="Cards\oinfinite.png" />
-    <Resource Include="Cards\oquestionmark.png" />
-    <Resource Include="Cards\y0.png" />
-    <Resource Include="Cards\y1.png" />
-    <Resource Include="Cards\y13.png" />
-    <Resource Include="Cards\y1_2.png" />
-    <Resource Include="Cards\y2.png" />
-    <Resource Include="Cards\y20.png" />
-    <Resource Include="Cards\y3.png" />
-    <Resource Include="Cards\y40.png" />
-    <Resource Include="Cards\y5.png" />
-    <Resource Include="Cards\y8.png" />
-    <Resource Include="Cards\ybreak.png" />
-    <Resource Include="Cards\yinfinite.png" />
-    <Resource Include="Cards\yquestionmark.png" />
+    <Resource Include="images\cards\b0.png" />
+    <Resource Include="images\cards\b1.png" />
+    <Resource Include="images\cards\b13.png" />
+    <Resource Include="images\cards\b1_2.png" />
+    <Resource Include="images\cards\b2.png" />
+    <Resource Include="images\cards\b20.png" />
+    <Resource Include="images\cards\b3.png" />
+    <Resource Include="images\cards\b40.png" />
+    <Resource Include="images\cards\b5.png" />
+    <Resource Include="images\cards\b8.png" />
+    <Resource Include="images\cards\backside.png" />
+    <Resource Include="images\cards\bbreak.png" />
+    <Resource Include="images\cards\binfinite.png" />
+    <Resource Include="images\cards\bquestionmark.png" />
+    <Resource Include="images\cards\g0.png" />
+    <Resource Include="images\cards\g1.png" />
+    <Resource Include="images\cards\g13.png" />
+    <Resource Include="images\cards\g1_2.png" />
+    <Resource Include="images\cards\g2.png" />
+    <Resource Include="images\cards\g20.png" />
+    <Resource Include="images\cards\g3.png" />
+    <Resource Include="images\cards\g40.png" />
+    <Resource Include="images\cards\g5.png" />
+    <Resource Include="images\cards\g8.png" />
+    <Resource Include="images\cards\gbreak.png" />
+    <Resource Include="images\cards\ginfinite.png" />
+    <Resource Include="images\cards\gquestionmark.png" />
+    <Resource Include="images\cards\o0.png" />
+    <Resource Include="images\cards\o1.png" />
+    <Resource Include="images\cards\o13.png" />
+    <Resource Include="images\cards\o1_2.png" />
+    <Resource Include="images\cards\o2.png" />
+    <Resource Include="images\cards\o20.png" />
+    <Resource Include="images\cards\o3.png" />
+    <Resource Include="images\cards\o40.png" />
+    <Resource Include="images\cards\o5.png" />
+    <Resource Include="images\cards\o8.png" />
+    <Resource Include="images\cards\obreak.png" />
+    <Resource Include="images\cards\oinfinite.png" />
+    <Resource Include="images\cards\oquestionmark.png" />
+    <Resource Include="images\cards\y0.png" />
+    <Resource Include="images\cards\y1.png" />
+    <Resource Include="images\cards\y13.png" />
+    <Resource Include="images\cards\y1_2.png" />
+    <Resource Include="images\cards\y2.png" />
+    <Resource Include="images\cards\y20.png" />
+    <Resource Include="images\cards\y3.png" />
+    <Resource Include="images\cards\y40.png" />
+    <Resource Include="images\cards\y5.png" />
+    <Resource Include="images\cards\y8.png" />
+    <Resource Include="images\cards\ybreak.png" />
+    <Resource Include="images\cards\yinfinite.png" />
+    <Resource Include="images\cards\yquestionmark.png" />
+    <Content Include="CustomDictionary.xml" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup />

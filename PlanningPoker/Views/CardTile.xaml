@@ -7,9 +7,19 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="480" d:DesignWidth="480">
-    
-    <Grid x:Name="LayoutRoot">
-        <Image x:Name="image" VerticalAlignment="Center" Stretch="UniformToFill" Source="{Binding Image}" Tap="OnImageTap" />
-    </Grid>
+    d:DesignHeight="173" d:DesignWidth="173">
+    <Canvas Background="{StaticResource PhoneAccentBrush}"
+            Tap="OnImageTap" Margin="0">
+        <TextBlock x:Name="mainText"
+                   Text="10"
+                   Foreground="White"
+                   FontSize="100" Padding="0" Margin="0" />
+        <TextBlock x:Name="infoText"
+                   Text="storypoints"
+                   TextAlignment="Right"
+                   FlowDirection="RightToLeft"
+                   Foreground="White"
+                   Canvas.Left="170" Canvas.Top="137"
+                   FontSize="25"/>
+    </Canvas>
 </UserControl>

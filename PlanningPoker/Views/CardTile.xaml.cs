@@ -8,7 +8,6 @@ namespace PlanningPoker.Views
 {
     using System;
     using System.Windows;
-    using System.Windows.Media.Imaging;
 
     using PlanningPoker.Helpers;
 
@@ -50,7 +49,7 @@ namespace PlanningPoker.Views
             set
             {
                 SetValue(CardProperty, value);
-                this.SetImage(value);
+                this.SetValues(value);
             }
         }
 
@@ -75,9 +74,10 @@ namespace PlanningPoker.Views
             this.Command.Invoke(this.Card);
         }
 
-        private void SetImage(Card card)
+        private void SetValues(Card card)
         {
-            this.image.Source = new BitmapImage(new Uri(ImagePathConstants.TileImagePath + card.ImagePath(), UriKind.Relative));
+            this.mainText.Text = card.MainText();
+            this.infoText.Text = card.InfoText();
         }
     }
 }

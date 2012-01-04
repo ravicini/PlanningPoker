@@ -7,6 +7,7 @@
 namespace PlanningPoker.ViewModels
 {
     using Caliburn.Micro;
+    
     using PlanningPoker.Helpers;
 
     /// <summary>
@@ -69,7 +70,7 @@ namespace PlanningPoker.ViewModels
         {
             if (!this.cardIsRevealed)
             {
-                this.CardPath = ImagePathConstants.CardImagePath + "b" + this.Card.ImagePath();
+                this.CardPath = Constants.CardImagePath + "y" + this.Card.ImagePath();
                 this.cardIsRevealed = true;
             }
             else
@@ -81,7 +82,7 @@ namespace PlanningPoker.ViewModels
         private void Reset()
         {
             this.cardIsRevealed = false;
-            this.CardPath = ImagePathConstants.BacksideCardPath;
+            this.CardPath = Constants.BacksideCardPath;
         }
     }
 }
