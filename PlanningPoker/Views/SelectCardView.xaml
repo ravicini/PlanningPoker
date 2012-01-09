@@ -8,18 +8,37 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Views="clr-namespace:PlanningPoker.Views"
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="False">
 
-    <!--LayoutRoot contains the root grid where all other page content is placed-->
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
     <Grid x:Name="LayoutRoot">
         <controls:Panorama Title="select card">
 
-            <!--Panorama item one-->
             <controls:PanoramaItem>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -43,7 +62,6 @@
                 </Grid>
             </controls:PanoramaItem>
 
-            <!--Panorama item two-->
             <controls:PanoramaItem>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -67,7 +85,6 @@
                 </Grid>
             </controls:PanoramaItem>
 
-            <!--Panorama item two-->
             <controls:PanoramaItem>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -119,6 +136,4 @@
             </controls:PanoramaItem>
         </controls:Panorama>
     </Grid>
-    <!--Panorama-based applications should not show an ApplicationBar-->
-
 </phone:PhoneApplicationPage>

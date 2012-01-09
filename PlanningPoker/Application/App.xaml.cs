@@ -13,8 +13,6 @@ namespace PlanningPoker.Application
     /// </summary>
     public partial class App
     {
-        private bool phoneApplicationInitialized;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="App"/> class.
         /// </summary>

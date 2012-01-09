@@ -40,18 +40,6 @@ namespace PlanningPoker.ViewModels
         }
 
         /// <summary>
-        /// Navigates to the provided card.
-        /// </summary>
-        /// <param name="card">The card.</param>
-        private void Navigate(Card card)
-        {
-            this.navigationService
-                .UriFor<CardViewModel>()
-                .WithParam(viewModel => viewModel.Card, card)
-                .Navigate();
-        }
-
-        /// <summary>
         /// Navigates to the break view.
         /// </summary>
         public void NavigateToBreak()
@@ -86,6 +74,18 @@ namespace PlanningPoker.ViewModels
         {
             this.navigationService
                 .UriFor<AboutViewModel>()
+                .Navigate();
+        }
+
+        /// <summary>
+        /// Navigates to the provided card.
+        /// </summary>
+        /// <param name="card">The card.</param>
+        private void Navigate(Card card)
+        {
+            this.navigationService
+                .UriFor<CardViewModel>()
+                .WithParam(viewModel => viewModel.Card, card)
                 .Navigate();
         }
     }

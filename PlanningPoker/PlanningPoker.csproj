@@ -207,11 +207,11 @@
     <Resource Include="images\cards\ybreak.png" />
     <Resource Include="images\cards\yinfinite.png" />
     <Resource Include="images\cards\yquestionmark.png" />
-    <Content Include="CustomDictionary.xml" />
     <Resource Include="images\rules\infinite.png" />
     <Resource Include="images\rules\pause.png" />
     <Resource Include="images\rules\question.png" />
     <Resource Include="images\rules\zero.png" />
+    <Resource Include="images\logo_bbv.png" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup />

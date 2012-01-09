@@ -1,15 +1,19 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="GlobalSuppressions.cs" company="">
+// <copyright file="RulesView.xaml.cs" company="">
 //   Copyright (c) Marco Ravicini. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Microsoft.Phone.Controls;
-
 namespace PlanningPoker.Views
 {
-    public partial class RulesView : PhoneApplicationPage
+    /// <summary>
+    /// Rules page.
+    /// </summary>
+    public partial class RulesView
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RulesView"/> class.
+        /// </summary>
         public RulesView()
         {
             InitializeComponent();

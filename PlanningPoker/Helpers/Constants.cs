@@ -12,23 +12,13 @@ namespace PlanningPoker.Helpers
     public static class Constants
     {
         /// <summary>
-        /// Path for card images.
+        /// Text constant for storyponit
         /// </summary>
-        public const string CardImagePath = "/PlanningPoker;component/images/cards/";
+        public const string StoryPoint = "storypoint";
 
         /// <summary>
-        /// Path for backside image.
+        /// Text constant for storypoints
         /// </summary>
-        public const string BacksideCardPath = "/PlanningPoker;component/images/cards/backside.png";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public const string Storypoint = "storypoint";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public const string Storypoints = "storypoints";
+        public const string StoryPoints = "storypoints";
     }
 }

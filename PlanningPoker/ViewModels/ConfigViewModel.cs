@@ -12,15 +12,25 @@ namespace PlanningPoker.ViewModels
 
     using PlanningPoker.Helpers;
 
+    /// <summary>
+    /// View model for configuration page.
+    /// </summary>
     public class ConfigViewModel : PropertyChangedBase
     {
         private readonly ColorSetting colorSetting;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConfigViewModel"/> class.
+        /// </summary>
+        /// <param name="colorSetting">The color setting.</param>
         public ConfigViewModel(ColorSetting colorSetting)
         {
             this.colorSetting = colorSetting;
         }
 
+        /// <summary>
+        /// Gets the available card colors.
+        /// </summary>
         public IEnumerable<CardColor> CardColors
         {
             get
@@ -29,6 +39,9 @@ namespace PlanningPoker.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets or sets the configured color.
+        /// </summary>
         public CardColor Color
         {
             get

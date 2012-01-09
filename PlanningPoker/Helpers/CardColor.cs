@@ -3,7 +3,7 @@
 //     Copyright (c) Marco Ravicini. All rights reserved.  
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
-// 
+
 namespace PlanningPoker.Helpers
 {
     using System.Windows.Media;

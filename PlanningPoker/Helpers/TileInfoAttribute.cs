@@ -26,12 +26,12 @@ namespace PlanningPoker.Helpers
         }
 
         /// <summary>
-        /// Gets or sets the text.
+        /// Gets the text.
         /// </summary>
         public string Text { get; private set; }
 
         /// <summary>
-        /// Gets or sets the info.
+        /// Gets the info.
         /// </summary>
         public string Info { get; private set; }
     }

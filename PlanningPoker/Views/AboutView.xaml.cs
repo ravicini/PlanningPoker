@@ -1,15 +1,19 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="GlobalSuppressions.cs" company="">
+// <copyright file="AboutView.xaml.cs" company="">
 //   Copyright (c) Marco Ravicini. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Microsoft.Phone.Controls;
-
 namespace PlanningPoker.Views
 {
-    public partial class AboutView : PhoneApplicationPage
+    /// <summary>
+    /// About page.
+    /// </summary>
+    public partial class AboutView
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AboutView"/> class.
+        /// </summary>
         public AboutView()
         {
             InitializeComponent();

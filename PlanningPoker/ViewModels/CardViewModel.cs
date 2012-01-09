@@ -6,7 +6,6 @@
 
 namespace PlanningPoker.ViewModels
 {
-
     using Caliburn.Micro;
 
     using PlanningPoker.Helpers;
@@ -16,12 +15,13 @@ namespace PlanningPoker.ViewModels
     /// </summary>
     public class CardViewModel : Screen
     {
-        private readonly INavigationService navigationService;
+        private const string CardImagePath = "/PlanningPoker;component/images/cards/";
+        private const string BacksideCardPath = "/PlanningPoker;component/images/cards/backside.png";
 
+        private readonly INavigationService navigationService;
         private readonly ColorSetting colorSetting;
 
         private Card card;
-
         private string cardPath;
 
         /// <summary>
@@ -33,6 +33,17 @@ namespace PlanningPoker.ViewModels
         {
             this.navigationService = navigationService;
             this.colorSetting = colorSetting;
+        }
+
+        /// <summary>
+        /// Gets the image path to the card's backside image.
+        /// </summary>
+        public static string CardBacksidePath
+        {
+            get
+            {
+                return BacksideCardPath;
+            }
         }
 
         /// <summary>
@@ -52,14 +63,6 @@ namespace PlanningPoker.ViewModels
             }
         }
 
-        public string CardBacksidePath
-        {
-            get
-            {
-                return Constants.BacksideCardPath;
-            }
-        }
-
         /// <summary>
         /// Gets or sets the path to the card image.
         /// </summary>
@@ -68,7 +71,6 @@ namespace PlanningPoker.ViewModels
             get
             {
                 return this.cardPath;
-                
             }
 
             set
@@ -77,7 +79,10 @@ namespace PlanningPoker.ViewModels
                 this.NotifyOfPropertyChange(() => this.CardPath);
             }
         }
-        
+
+        /// <summary>
+        /// Closes this page.
+        /// </summary>
         public void Close()
         {
             this.navigationService.GoBack();
@@ -85,7 +90,7 @@ namespace PlanningPoker.ViewModels
 
         private void SetCardPath()
         {
-            this.CardPath = Constants.CardImagePath + this.colorSetting.Color.PathAddition + this.Card.ImagePath();
+            this.CardPath = CardImagePath + this.colorSetting.Color.PathAddition + this.Card.ImagePath();
         }
     }
 }

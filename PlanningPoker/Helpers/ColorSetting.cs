@@ -3,7 +3,7 @@
 //     Copyright (c) Marco Ravicini. All rights reserved.  
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
-// 
+
 namespace PlanningPoker.Helpers
 {
     using System.Collections.Generic;
@@ -12,14 +12,16 @@ namespace PlanningPoker.Helpers
 
     using Caliburn.Micro;
 
+    /// <summary>
+    /// Helper class for card color settings.
+    /// </summary>
     public class ColorSetting
     {
+        private const string Red = "red";
+        private const string Green = "green";
+        private const string Blue = "blue";
+        private const string Yellow = "yellow";
         private const string CardColorSettingsKey = "CardColor";
-
-        public const string Red = "red";
-        public const string Green = "green";
-        public const string Blue = "blue";
-        public const string Yellow = "yellow";
 
         private readonly IEnumerable<CardColor> cardColors = new List<CardColor>
             {
@@ -31,11 +33,18 @@ namespace PlanningPoker.Helpers
 
         private readonly AppSettingsStorageMechanism storageMechanism;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ColorSetting"/> class.
+        /// </summary>
+        /// <param name="storageMechanism">The storage mechanism.</param>
         public ColorSetting(AppSettingsStorageMechanism storageMechanism)
         {
             this.storageMechanism = storageMechanism;
         }
 
+        /// <summary>
+        /// Gets the available colors.
+        /// </summary>
         public IEnumerable<CardColor> AvailableColors
         {
             get
@@ -44,6 +53,9 @@ namespace PlanningPoker.Helpers
             }
         }
 
+        /// <summary>
+        /// Gets or sets the configured color.
+        /// </summary>
         public CardColor Color
         {
             get
@@ -55,14 +67,17 @@ namespace PlanningPoker.Helpers
                     color = this.cardColors.SingleOrDefault(c => c.Description == (string)savedColor);
                 }
 
-                return color ?? AvailableColors.First();
+                return color ?? this.AvailableColors.First();
             }
 
             set
             {
-                this.storageMechanism.BeginStoring();
-                this.storageMechanism.Store(CardColorSettingsKey, value.Description);
-                this.storageMechanism.EndStoring();
+                if (value != null)
+                {
+                    this.storageMechanism.BeginStoring();
+                    this.storageMechanism.Store(CardColorSettingsKey, value.Description);
+                    this.storageMechanism.EndStoring();
+                }
             }
         }
     }

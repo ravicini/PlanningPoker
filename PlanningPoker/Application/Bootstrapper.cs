@@ -12,6 +12,7 @@ namespace PlanningPoker.Application
     using Caliburn.Micro;
 
     using Microsoft.Phone.Controls;
+    using Microsoft.Phone.Tasks;
 
     using PlanningPoker.Helpers;
     using PlanningPoker.ViewModels;
@@ -39,8 +40,13 @@ namespace PlanningPoker.Application
             this.container.PerRequest<RulesViewModel>();
             this.container.PerRequest<ColorSetting>();
             this.container.PerRequest<AppSettingsStorageMechanism>();
+            this.container.PerRequest<WebBrowserTask>();
         }
 
+        /// <summary>
+        /// Creates the root frame used by the application.
+        /// </summary>
+        /// <returns>The transition frame from windows phone toolkit.</returns>
         protected override PhoneApplicationFrame CreatePhoneApplicationFrame()
         {
             return new TransitionFrame();
