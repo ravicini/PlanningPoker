@@ -6,8 +6,9 @@
 
 namespace PlanningPoker.ViewModels
 {
+
     using Caliburn.Micro;
-    
+
     using PlanningPoker.Helpers;
 
     /// <summary>
@@ -16,34 +17,22 @@ namespace PlanningPoker.ViewModels
     public class CardViewModel : Screen
     {
         private readonly INavigationService navigationService;
+
+        private readonly ColorSetting colorSetting;
+
         private Card card;
+
         private string cardPath;
-        private bool cardIsRevealed;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CardViewModel"/> class.
         /// </summary>
         /// <param name="navigationService">The navigation service.</param>
-        public CardViewModel(INavigationService navigationService)
+        /// <param name="colorSetting">The color setting.</param>
+        public CardViewModel(INavigationService navigationService, ColorSetting colorSetting)
         {
             this.navigationService = navigationService;
-        }
-
-        /// <summary>
-        /// Gets or sets the path to the card image.
-        /// </summary>
-        public string CardPath
-        {
-            get
-            {
-                return this.cardPath;
-            }
-
-            set
-            {
-                this.cardPath = value;
-                this.NotifyOfPropertyChange(() => this.CardPath);
-            }
+            this.colorSetting = colorSetting;
         }
 
         /// <summary>
@@ -59,30 +48,44 @@ namespace PlanningPoker.ViewModels
             set
             {
                 this.card = value;
-                this.Reset();
+                this.SetCardPath();
+            }
+        }
+
+        public string CardBacksidePath
+        {
+            get
+            {
+                return Constants.BacksideCardPath;
             }
         }
 
         /// <summary>
-        /// Reveals this the card, or navigates back if already revealed.
+        /// Gets or sets the path to the card image.
         /// </summary>
-        public void Reveal()
+        public string CardPath
         {
-            if (!this.cardIsRevealed)
+            get
             {
-                this.CardPath = Constants.CardImagePath + "y" + this.Card.ImagePath();
-                this.cardIsRevealed = true;
+                return this.cardPath;
+                
             }
-            else
+
+            set
             {
-                this.navigationService.GoBack();
+                this.cardPath = value;
+                this.NotifyOfPropertyChange(() => this.CardPath);
             }
         }
-
-        private void Reset()
+        
+        public void Close()
         {
-            this.cardIsRevealed = false;
-            this.CardPath = Constants.BacksideCardPath;
+            this.navigationService.GoBack();
+        }
+
+        private void SetCardPath()
+        {
+            this.CardPath = Constants.CardImagePath + this.colorSetting.Color.PathAddition + this.Card.ImagePath();
         }
     }
 }

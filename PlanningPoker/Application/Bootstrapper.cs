@@ -11,8 +11,10 @@ namespace PlanningPoker.Application
 
     using Caliburn.Micro;
 
+    using Microsoft.Phone.Controls;
+
+    using PlanningPoker.Helpers;
     using PlanningPoker.ViewModels;
-    using PlanningPoker.Views;
 
     /// <summary>
     /// application bootstrapper
@@ -27,13 +29,21 @@ namespace PlanningPoker.Application
         protected override void Configure()
         {
             this.container = new PhoneContainer(RootFrame);
-
+            
             this.container.RegisterPhoneServices();
-
-            this.container.Singleton<SelectCardView>();
+            
             this.container.Singleton<SelectCardViewModel>();
-            this.container.PerRequest<CardView>();
             this.container.PerRequest<CardViewModel>();
+            this.container.PerRequest<ConfigViewModel>();
+            this.container.PerRequest<AboutViewModel>();
+            this.container.PerRequest<RulesViewModel>();
+            this.container.PerRequest<ColorSetting>();
+            this.container.PerRequest<AppSettingsStorageMechanism>();
+        }
+
+        protected override PhoneApplicationFrame CreatePhoneApplicationFrame()
+        {
+            return new TransitionFrame();
         }
 
         /// <summary>

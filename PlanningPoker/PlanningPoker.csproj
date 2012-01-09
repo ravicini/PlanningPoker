@@ -27,6 +27,8 @@
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\PlanningPoker\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,6 +62,9 @@
     </Reference>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\SilverlightToolkitWP.4.2011.12.13\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -75,7 +80,10 @@
     <Compile Include="Application\Bootstrapper.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\Card.cs" />
+    <Compile Include="Helpers\CardColor.cs" />
     <Compile Include="Helpers\CardExtensions.cs" />
+    <Compile Include="Helpers\ColorSetting.cs" />
+    <Compile Include="Helpers\StoryboardStartAction.cs" />
     <Compile Include="Helpers\ImageAttribute.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\TileInfoAttribute.cs" />

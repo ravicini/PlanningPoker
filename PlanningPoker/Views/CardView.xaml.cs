@@ -1,4 +1,4 @@
-// --------------------------------------------------------------------------------------------------------------------
+﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="CardView.xaml.cs">
 //   Copyright (c) Marco Ravicini. All rights reserved.
 // </copyright>
@@ -30,21 +30,5 @@ namespace PlanningPoker.Views
         {
             InitializeComponent();
         }
-
-        /// <summary>
-        /// Gets or sets the card.
-        /// </summary>
-        public Card Card
-        {
-            get
-            {
-                return (Card)GetValue(CardProperty);
-            }
-
-            set
-            {
-                SetValue(CardProperty, value);
-            }
-        }   
     }
 }
